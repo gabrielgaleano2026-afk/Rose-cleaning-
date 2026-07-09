@@ -21,8 +21,7 @@
       box-sizing: border-box;
     }
 
-    bodyide/logo.jpeg
-
+    body {
       margin: 0;
       min-height: 100vh;
       position: relative;
@@ -81,7 +80,7 @@
       top: 10px;
       left: 10px;
       right: auto;
-      width: 92px;
+      width: 184px;
       height: auto;
       z-index: 9999;
       border-radius: 6px;
@@ -109,30 +108,156 @@
     }
 
     .hero {
+      padding: 2rem 0 3rem;
+    }
+
+    .hero-media {
+      position: relative;
+      min-height: 520px;
+      border-radius: 32px;
+      /* allow banner to overlap but keep rounded corners visually */
+      overflow: hidden;
+      box-shadow: 0 24px 60px rgba(109, 57, 107, 0.18);
       display: grid;
-      gap: 2rem;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0;
+      align-items: stretch;
+    }
+
+    .hero-media .image-wrap {
+      display: flex;
       align-items: center;
-      padding: 4rem 0 3rem;
+      justify-content: center;
+      background: #000;
+      min-height: 520px;
+      overflow: hidden;
+    }
+
+    .hero-media .image-wrap img {
+      max-width: 100%;
+      max-height: 520px;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      display: block;
+    }
+
+    .hero-media .image-wrap:first-child img {
+      filter: brightness(1.15) contrast(1.05);
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2.5rem;
+      background: linear-gradient(90deg, rgba(12, 12, 12, 0.32) 0%, rgba(12, 12, 12, 0.06) 45%, rgba(12, 12, 12, 0.32) 100%);
+      z-index: 1;
+    }
+
+    /* Bottom banner that matches the sample image */
+    .bottom-banner {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 65px;
+      background: linear-gradient(90deg, rgba(11,41,60,0.98), rgba(22,56,80,0.98));
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0 1.2rem;
+      color: #ffffff;
+      z-index: 2;
+      border-top: 1px solid rgba(255,255,255,0.04);
+    }
+
+    .banner-section {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      flex: 1 1 0;
+      min-width: 0;
+    }
+
+    .banner-section.center {
+      justify-content: center;
+      text-align: center;
+    }
+
+    .banner-section.right {
+      justify-content: flex-end;
+    }
+
+    .banner-text {
+      font-weight: 600;
+      font-size: 0.98rem;
+      color: rgba(255,255,255,0.95);
+    }
+
+    .banner-sub {
+      color: rgba(255,255,255,0.78);
+      font-weight: 500;
+      font-size: 0.82rem;
+      margin-top: 2px;
+    }
+
+    .banner-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .banner-logo img {
+      height: 36px;
+      width: auto;
+      filter: drop-shadow(0 3px 6px rgba(0,0,0,0.2));
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2.5rem;
+      background: linear-gradient(90deg, rgba(12, 12, 12, 0.42) 0%, rgba(12, 12, 12, 0.16) 45%, rgba(12, 12, 12, 0.42) 100%);
+    }
+
+    .hero-content {
+      width: 100%;
+      max-width: 680px;
+      color: #ffffff;
+      position: relative;
+      z-index: 1;
+      text-align: center;
     }
 
     .hero h1 {
       margin: 0;
-      font-size: clamp(2.6rem, 4vw, 3.8rem);
+      font-size: clamp(2.4rem, 4vw, 3.5rem);
       line-height: 1.05;
       letter-spacing: -0.04em;
+      color: #ffffff;
+      text-shadow: 0 4px 20px rgba(0, 0, 0, 0.38);
     }
 
     .hero p {
-      margin: 1.5rem 0;
-      color: var(--muted);
+      margin: 1.25rem 0 0;
+      color: rgba(255, 255, 255, 0.92);
       font-size: 1.05rem;
+      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.26);
+      max-width: 620px;
     }
 
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 1rem;
-      margin-top: 2rem;
+      margin-top: 1.5rem;
     }
 
     .btn {
@@ -152,30 +277,14 @@
     }
 
     .btn-secondary {
-      background: transparent;
-      border: 1px solid rgba(217, 70, 239, 0.2);
-      color: var(--primary);
+      background: rgba(255, 255, 255, 0.14);
+      border: 1px solid rgba(255, 255, 255, 0.38);
+      color: #ffffff;
+      backdrop-filter: blur(6px);
     }
 
     .btn:hover {
       transform: translateY(-1px);
-    }
-
-    .hero-visual {
-      padding: 2rem;
-      background: linear-gradient(180deg, rgba(249,168,212,0.23) 0%, rgba(255,255,255,0.95) 100%);
-      border-radius: 32px;
-      box-shadow: 0 20px 55px rgba(145, 49, 106, 0.12);
-    }
-
-    .hero-visual h2 {
-      margin-top: 0;
-      color: var(--primary);
-    }
-
-    .hero-visual p {
-      margin: 1rem 0 0;
-      color: var(--muted);
     }
 
     section {
@@ -301,13 +410,15 @@
     }
 
     .highlight-box {
-      display: inline-flex;
+      display: table;
+      margin: 0 auto;
       padding: 0.8rem 1rem;
       border-radius: 999px;
       background: var(--accent);
       color: var(--primary);
       font-size: 0.95rem;
       font-weight: 600;
+      transform: translateX(80px);
     }
 
     footer {
@@ -337,11 +448,10 @@
   </style>
 </head>
 <body>
-  <img id="corner-logo" src="logo.png" alt="Rose Cleaning logo" />
+  <img id="corner-logo" src="logo.jpeg" alt="Rose Cleaning logo" />
   <header>
     <div class="container nav-wrap">
-      <a href="#home" class="brand" aria-label="Rose Cleaning home">
-        <span>Rose Cleaning</span>
+      <a href="#home" class="brand" aria-label="Home">
       </a>
       <nav>
         <ul>
@@ -355,18 +465,58 @@
 
   <main class="container">
     <section class="hero" id="home">
-      <div>
-        <p class="highlight-box">Residential and commercial cleaning</p>
-        <h1>Your space impeccably cared for by Rose Cleaning.</h1>
-        <p>Rose Cleaning offers professional cleaning services with reliability and punctuality for homes, offices, and events. We believe in fresh, safe, and spotless spaces.</p>
-        <div class="hero-actions">
-          <a href="#contact" class="btn btn-primary">Book cleaning</a>
-          <a href="#services" class="btn btn-secondary">View services</a>
+      <div class="hero-media">
+        <div class="image-wrap">
+          <img src="hero2.jpg" alt="Clean and well-organized space" />
+        </div>
+        <div class="image-wrap">
+          <img src="hero1.jpg" alt="Professional cleaning service" />
+        </div>
+
+        <div class="hero-overlay">
+          <div class="hero-content">
+            <h1>Your space impeccably cared for by Rose Cleaning.</h1>
+            <p>Rose Cleaning offers professional cleaning services with reliability and punctuality for homes, offices, and events. We believe in fresh, safe, and spotless spaces.</p>
+          </div>
+        </div>
+
+        <div class="bottom-banner" aria-hidden="false">
+          <div class="banner-section left">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2L3 7v6c0 5 3.8 9.7 9 11 5.2-1.3 9-6 9-11V7l-9-5z" fill="#fff" opacity="0.12"/>
+              <path d="M9.5 12.5l2 2 4-6" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <div>
+              <div class="banner-text">Focus on your goals — we handle the rest.</div>
+              <div class="banner-sub">Professional cleaning for your peace of mind.</div>
+            </div>
+          </div>
+
+          <div class="banner-section center">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 12a9 9 0 1 0 18 0 9 9 0 0 0-18 0z" stroke="#fff" stroke-width="1.2" opacity="0.16"/>
+              <path d="M8 12h8M8 16h6" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <div>
+              <div class="banner-text">Pristine spaces, every time.</div>
+              <div class="banner-sub">Trusted protocols and meticulous care.</div>
+            </div>
+          </div>
+
+          <div class="banner-section right">
+            <div class="banner-logo">
+                <img src="logo.jpeg" alt="Rose logo">
+              <div>
+                <div class="banner-text">ROSE</div>
+                <div class="banner-sub">CLEANING SERVICES</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="hero-visual">
-        <h2>Cleaning that feels like a breath of fresh air.</h2>
-        <p>Certified teams and eco-friendly products so your space stays impeccably clean without worry.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">Book cleaning</a>
+        <a href="#services" class="btn btn-secondary">View services</a>
       </div>
     </section>
 
@@ -375,17 +525,17 @@
       <h2 class="section-heading">Cleaning solutions tailored to your routine</h2>
       <div class="grid cards">
         <article class="card">
-          <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=1200&q=80" alt="Habitación limpia y ordenada" />
+          <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=1200&q=80" alt="Clean and organized bedroom" />
           <h3>Home cleaning</h3>
           <p>Complete services for homes, apartments, and houses, focused on hygiene and order so you can enjoy every corner.</p>
         </article>
         <article class="card">
-          <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80" alt="Sala de juntas con mesa de vidrio" />
+          <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80" alt="Glass conference table in meeting room" />
           <h3>Commercial cleaning</h3>
           <p>Professional care for offices, stores, and workspaces. Flexible scheduling and strict safety standards.</p>
         </article>
         <article class="card">
-          <img src="https://images.unsplash.com/photo-1516455590571-18256e5bb9ff?auto=format&fit=crop&w=1200&q=80" alt="Interior limpio y ordenado" />
+          <img src="https://images.unsplash.com/photo-1516455590571-18256e5bb9ff?auto=format&fit=crop&w=1200&q=80" alt="Clean and organized interior" />
           <h3>Deep cleaning</h3>
           <p>Thorough disinfection and cleaning for kitchens, bathrooms, floors, and high-touch surfaces using effective and safe products.</p>
         </article>

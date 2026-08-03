@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
   <title>Rose Cleaning</title>
   <style>
     :root {
@@ -30,6 +33,7 @@
       color: var(--text);
       line-height: 1.7;
       border: 0.8px solid var(--gold);
+      overflow-x: hidden;
     }
 
     a {
@@ -103,8 +107,15 @@
       margin: 0;
     }
 
+    nav a {
+      color: #7a2c8f;
+      font-weight: 700;
+      transition: color 0.2s ease, transform 0.2s ease;
+    }
+
     nav a:hover {
-      color: var(--secondary);
+      color: #d946ef;
+      transform: translateY(-1px);
     }
 
     .hero {
@@ -186,6 +197,59 @@
       font-size: 0.95rem;
       opacity: 0.95;
       text-shadow: none;
+    }
+
+    .floating-offer {
+      position: fixed;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: min(460px, calc(100vw - 24px));
+      height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #fffdf5 0%, #fdf7e8 100%);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+      z-index: 40;
+      border: 1px solid #d4af37;
+      border-radius: 999px;
+      padding: 0 0.9rem;
+    }
+
+    .floating-offer__content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.7rem;
+      color: #111111;
+      text-align: center;
+      width: 100%;
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      flex-wrap: wrap;
+    }
+
+    .floating-offer__badge {
+      font-size: 0.72rem;
+      font-weight: 900;
+      padding: 0.28rem 0.55rem;
+      border-radius: 999px;
+      background: #111111;
+      color: #ffffff;
+      text-transform: uppercase;
+    }
+
+    .floating-offer__label,
+    .floating-offer__countdown {
+      font-size: 0.75rem;
+      font-weight: 800;
+    }
+
+    .floating-offer__countdown {
+      color: #111111;
+      font-size: 0.78rem;
     }
 
     .hero-content {
@@ -281,6 +345,10 @@
 
     .cards {
       grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .vision-mission-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .card {
@@ -471,16 +539,33 @@
     }
 
     @media (max-width: 720px) {
+      .floating-offer {
+        top: 8px;
+        height: 40px;
+        width: min(360px, calc(100vw - 16px));
+      }
+
+      .floating-offer__content {
+        gap: 0.4rem;
+      }
+
       .hero {
         padding-top: 3rem;
       }
 
       .hero-media {
-        min-height: 420px;
+        min-height: auto;
+        grid-template-columns: 1fr 1fr;
       }
 
       .hero-media .image-wrap {
-        min-height: 420px;
+        min-height: 220px;
+        height: 220px;
+      }
+
+      .hero-media .image-wrap img {
+        object-fit: cover;
+        object-position: center;
       }
 
       .hero-banner {
@@ -499,8 +584,21 @@
         padding: 2rem 1rem;
       }
 
-      #about .cards {
-        grid-template-columns: 1fr;
+      .vision-mission-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .vision-mission-grid .card {
+        padding: 1rem;
+      }
+
+      .vision-mission-grid .card h3 {
+        font-size: 1rem;
+      }
+
+      .vision-mission-grid .card p {
+        font-size: 0.88rem;
+        line-height: 1.5;
       }
 
       nav ul {
@@ -510,7 +608,7 @@
   </style>
 </head>
 <body>
-  <img id="corner-logo" src="logo.jpeg" alt="Rose Cleaning logo" />
+  <img id="corner-logo" src="logo.jpeg?v=2" alt="Rose Cleaning logo" />
   <header>
     <div class="container nav-wrap">
       <a href="#home" class="brand" aria-label="Home">
@@ -525,14 +623,22 @@
     </div>
   </header>
 
+  <aside class="floating-offer" aria-label="Special offer banner">
+    <div class="floating-offer__content">
+      <span class="floating-offer__badge">25% OFF</span>
+      <span class="floating-offer__label">Limited time</span>
+      <span id="countdown" class="floating-offer__countdown">17:00:00</span>
+    </div>
+  </aside>
+
   <main class="container">
     <section class="hero" id="home">
       <div class="hero-media">
         <div class="image-wrap">
-          <img src="hero2.jpg" alt="Clean and well-organized space" />
+          <img src="hero2.jpg?v=2" alt="Clean and well-organized space" />
         </div>
         <div class="image-wrap">
-          <img src="hero1.jpg" alt="Professional cleaning service" />
+          <img src="hero1.jpg?v=2" alt="Professional cleaning service" />
         </div>
 
         <div class="hero-overlay">
@@ -571,7 +677,7 @@
     <section id="about">
       <span class="section-title">Vision & Mission</span>
       <h2 class="section-heading">Clean spaces, dependable service, and lasting trust</h2>
-      <div class="grid cards" style="grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 1.5rem;">
+      <div class="grid cards vision-mission-grid">
         <article class="card">
           <h3>Vision</h3>
           <p>To become the trusted cleaning partner for every home and business that values comfort, care, and reliability.</p>
@@ -640,5 +746,35 @@
       <p>© 2026 Rose Cleaning. All rights reserved. — <a href="mailto:info@rosecleaningct.com">info@rosecleaningct.com</a> | 860-303-8599</p>
     </div>
   </footer>
+
+  <script>
+    (() => {
+      const countdownEl = document.getElementById('countdown');
+      const durationMs = 17 * 60 * 60 * 1000;
+
+      function formatTime(ms) {
+        const hours = Math.floor(ms / 3600000);
+        const minutes = Math.floor((ms % 3600000) / 60000);
+        const seconds = Math.floor((ms % 60000) / 1000);
+
+        return [hours, minutes, seconds]
+          .map((value) => String(value).padStart(2, '0'))
+          .join(':');
+      }
+
+      function getRemainingTime() {
+        const now = Date.now();
+        const elapsedInCycle = now % durationMs;
+        return durationMs - elapsedInCycle;
+      }
+
+      function updateCountdown() {
+        countdownEl.textContent = formatTime(getRemainingTime());
+      }
+
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+    })();
+  </script>
 </body>
 </html>

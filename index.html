@@ -540,10 +540,16 @@
     }
 
     @media (max-width: 720px) {
+      #corner-logo {
+        top: 52px;
+        left: 12px;
+        width: 122px;
+      }
+
       .floating-offer {
         top: 8px;
         height: 40px;
-        width: min(360px, calc(100vw - 16px));
+        width: min(320px, calc(100vw - 16px));
       }
 
       .floating-offer__content {
@@ -556,12 +562,13 @@
 
       .hero-media {
         min-height: auto;
-        grid-template-columns: 1fr 1fr;
+        display: block;
       }
 
       .hero-media .image-wrap {
         min-height: 220px;
         height: 220px;
+        width: 100%;
       }
 
       .hero-media .image-wrap img {
@@ -569,8 +576,14 @@
         object-position: center;
       }
 
+      .hero-overlay {
+        position: static;
+        background: transparent;
+        padding: 0.8rem 0 0;
+      }
+
       .hero-banner {
-        padding: 0.7rem 0.9rem;
+        padding: 0.8rem 0.9rem;
       }
 
       .hero-banner h1 {

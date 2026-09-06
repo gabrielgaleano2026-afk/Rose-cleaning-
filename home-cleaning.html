@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Home Cleaning — Rose Cleaning</title>
+  <style>
+    body,html{height:100%;margin:0;font-family:Inter,system-ui,Arial,sans-serif;color:#fff}
+    .hero{position:relative;height:100vh;background-image:url('housecleaningbackground.jpeg');background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center;text-align:center;padding:2rem}
+    .hero .bg-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+    .hero .panel{position:relative;z-index:1}
+    .panel{background:rgba(0,0,0,0.52);padding:2rem;border-radius:14px;max-width:900px;text-align:left}
+    h1{margin:0 0 0.5rem;font-size:2.2rem}
+    p{margin:0.6rem 0 0;font-size:1.05rem;line-height:1.6}
+    .services{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0.35rem 2rem;list-style:none;margin:1.25rem 0;padding:0;font-size:1rem;line-height:1.5}
+    .services li::before{content:"✓";margin-right:0.55rem;color:#9ff3d2;font-weight:700}
+    .estimate{display:inline-block;margin-top:0.5rem;background:#9ff3d2;color:#12352d;font-weight:700;padding:0.8rem 1.2rem;border-radius:8px;text-decoration:none}
+    .estimate:hover{background:#c4ffe7}
+    a.back{display:inline-block;margin-top:1rem;color:#fff;border:1px solid rgba(255,255,255,0.18);padding:0.5rem 0.9rem;border-radius:8px;text-decoration:none}
+  </style>
+</head>
+<body>
+  <main class="hero">
+    <img class="bg-img" src="housecleaningbackground.jpeg" alt="Clean and organized bedroom" />
+    <div class="panel">
+      <h1>HOME CLEANING SERVICES</h1>
+      <p>Enjoy a cleaner, fresher, and more comfortable home. We provide reliable cleaning services tailored to your needs.</p>
+      <ul class="services">
+        <li>Kitchen Cleaning</li>
+        <li>Bathroom Cleaning</li>
+        <li>Bedroom Cleaning</li>
+        <li>Living Area Cleaning</li>
+        <li>Dusting and Surface Cleaning</li>
+        <li>Vacuuming and Mopping</li>
+        <li>Appliance Exterior Cleaning</li>
+        <li>Trash Removal</li>
+        <li>Regular Cleaning</li>
+        <li>Deep Cleaning</li>
+        <li>Move-In &amp; Move-Out Cleaning</li>
+      </ul>
+      <a class="estimate" href="mailto:info@rosecleaningct.com">REQUEST A FREE ESTIMATE</a>
+      <a class="back" href="index.html">← Back to services</a>
+    </div>
+  </main>
+</body>
+</html>

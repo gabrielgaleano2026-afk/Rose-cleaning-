@@ -7,6 +7,7 @@
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
   <title>Rose Cleaning</title>
+  <link rel="icon" type="image/jpeg" href="rose-logo-favicon.jpeg">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
   <style>
     :root {
@@ -182,6 +183,36 @@
       justify-content: center;
     }
 
+    .floating-estimate {
+      position: fixed;
+      right: 16px;
+      bottom: 92px;
+      z-index: 10000;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.85rem 1.15rem;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #0f766e, #16a6a3 55%, #65d6b8);
+      color: #ffffff;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      box-shadow: 0 12px 26px rgba(15, 118, 110, 0.32);
+      animation: estimate-float 3.2s ease-in-out infinite;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .floating-estimate:hover {
+      animation-play-state: paused;
+      transform: translateY(-4px) scale(1.03);
+      box-shadow: 0 16px 30px rgba(15, 118, 110, 0.4);
+    }
+
+    @keyframes estimate-float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-7px); }
+    }
+
     .follow-section {
       padding: 2.2rem 0;
       text-align: center;
@@ -323,15 +354,9 @@
       text-transform: uppercase;
     }
 
-    .floating-offer__label,
-    .floating-offer__countdown {
+    .floating-offer__label {
       font-size: 0.75rem;
       font-weight: 800;
-    }
-
-    .floating-offer__countdown {
-      color: #111111;
-      font-size: 0.78rem;
     }
 
     .hero-content {
@@ -729,11 +754,14 @@
 
   <aside class="floating-offer" aria-label="Special offer banner">
     <div class="floating-offer__content">
-      <span class="floating-offer__badge">25% OFF</span>
-      <span class="floating-offer__label">Limited time</span>
-      <span id="countdown" class="floating-offer__countdown">17:00:00</span>
+      <span class="floating-offer__label">25% off your first cleaning</span>
     </div>
   </aside>
+
+  <a class="floating-estimate" href="mailto:info@rosecleaningct.com" aria-label="Request a free estimate by email">
+    <i class="bi bi-envelope-fill" aria-hidden="true"></i>
+    <span>GET A FREE ESTIMATE</span>
+  </a>
 
   <main class="container">
     <section class="hero" id="home">
@@ -747,8 +775,8 @@
 
         <div class="hero-overlay">
           <div class="hero-banner">
-            <h1>Your space impeccably cared for by Rose Cleaning.</h1>
-            <p>Reliable cleaning services for homes, offices, and events with spotless results.</p>
+            <h1>Professional Cleaning for Homes and Businesses</h1>
+            <p>Reliable residential and commercial cleaning throughout Southeastern Connecticut and Rhode Island. Free estimates and flexible scheduling.</p>
           </div>
         </div>
 
@@ -873,36 +901,5 @@
       <p>© 2026 Rose Cleaning. All rights reserved. — <a href="mailto:info@rosecleaningct.com">info@rosecleaningct.com</a> | 860-303-8599</p>
     </div>
   </footer>
-
-
-  <script>
-    (() => {
-      const countdownEl = document.getElementById('countdown');
-      const durationMs = 17 * 60 * 60 * 1000;
-
-      function formatTime(ms) {
-        const hours = Math.floor(ms / 3600000);
-        const minutes = Math.floor((ms % 3600000) / 60000);
-        const seconds = Math.floor((ms % 60000) / 1000);
-
-        return [hours, minutes, seconds]
-          .map((value) => String(value).padStart(2, '0'))
-          .join(':');
-      }
-
-      function getRemainingTime() {
-        const now = Date.now();
-        const elapsedInCycle = now % durationMs;
-        return durationMs - elapsedInCycle;
-      }
-
-      function updateCountdown() {
-        countdownEl.textContent = formatTime(getRemainingTime());
-      }
-
-      updateCountdown();
-      setInterval(updateCountdown, 1000);
-    })();
-  </script>
 </body>
 </html>
